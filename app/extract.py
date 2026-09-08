@@ -87,7 +87,8 @@ def extract_facts_from_pdf(
         print(f"[{doc_name}] Chunk {idx + 1}/{len(chunks)} (Pages {start_p}-{end_p})...")
 
         facts = extract_facts_from_chunk(chunk)
-        for f in facts:
+        for f_idx, f in enumerate(facts, 1):
+            f.fact_id = f"c{idx + 1}_f{f_idx}"
             f.source_doc = doc_name
             if f.page_num is None:
                 f.page_num = start_p

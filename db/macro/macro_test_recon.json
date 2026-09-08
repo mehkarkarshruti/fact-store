@@ -1,0 +1,100 @@
+[
+  {
+    "metric_name": "Global Economic Growth Rate",
+    "status": "CONTRADICTION",
+    "synthesis": "Discrepancies exist between sources for 2024 global growth: the Economic Survey highlights an IMF projection of 3.2 per cent for 2024, whereas the RBI Annual Report cites global economic growth of 3.3 per cent in 2024. Historically, global growth reached 3.3 per cent in 2023 (Econ Survey) and averaged 3.7 per cent over 2000-19 (RBI Report).",
+    "data_points": [
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 5,
+        "value": "3.3 per cent",
+        "time_period": "2023",
+        "evidence_text": "The global economy grew by 3.3 per cent in 2023."
+      },
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 5,
+        "value": "3.2 per cent",
+        "time_period": "2024",
+        "evidence_text": "The International Monetary Fund (IMF) has projected growth of 3.2 per cent and 3.3 per cent for 2024 and 2025, respectively."
+      },
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 5,
+        "value": "3.3 per cent",
+        "time_period": "2025",
+        "evidence_text": "The International Monetary Fund (IMF) has projected growth of 3.2 per cent and 3.3 per cent for 2024 and 2025, respectively."
+      },
+      {
+        "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "3.7 %",
+        "time_period": "2000-19",
+        "evidence_text": "The global economy in 2025 is likely to grow not only below its historical average (2000-19) of 3.7 per cent, but also below the growth of 3.3 per cent in 2024, on account of heightened global trade protectionism, rising policy uncertainty and ongoing geopolitical tensions."
+      },
+      {
+        "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "3.3 %",
+        "time_period": "2024",
+        "evidence_text": "The global economy in 2025 is likely to grow not only below its historical average (2000-19) of 3.7 per cent, but also below the growth of 3.3 per cent in 2024, on account of heightened global trade protectionism, rising policy uncertainty and ongoing geopolitical tensions."
+      }
+    ]
+  },
+  {
+    "metric_name": "Euro Area Economic Growth Rate",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "Euro area economic growth presents a consistent upward trajectory across time, improving from 0.4 per cent in 2023 to 0.8 per cent in 2024, and further to 1.0 per cent in 2025 supported by expanding services sector activity.",
+    "data_points": [
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "0.4 per cent",
+        "time_period": "2023",
+        "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity."
+      },
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "0.8 per cent",
+        "time_period": "2024",
+        "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity."
+      },
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "1.0 per cent",
+        "time_period": "2025",
+        "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity."
+      }
+    ]
+  },
+  {
+    "metric_name": "India Real GDP Growth Rate",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "India's real GDP growth rate is estimated at 6.4 per cent for FY25 according to the first advance estimates reported in the Economic Survey.",
+    "data_points": [
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 4,
+        "value": "6.4 per cent",
+        "time_period": "FY25",
+        "evidence_text": "As per the first advance estimates of national accounts, India\u2019s real GDP is estimated to grow by 6.4 per cent in FY25."
+      }
+    ]
+  },
+  {
+    "metric_name": "US Economic Growth Rate",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "US economic growth is projected at 2.8 per cent in 2024, maintaining strong momentum prior to an anticipated moderation in 2025.",
+    "data_points": [
+      {
+        "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+        "page_num": 6,
+        "value": "2.8 per cent",
+        "time_period": "2024",
+        "evidence_text": "Growth in the US is expected to remain strong at 2.8 per cent in 2024 and may decline slightly in 2025, reflecting a moderation in consumption and exports."
+      }
+    ]
+  }
+]

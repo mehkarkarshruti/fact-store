@@ -1,0 +1,57 @@
+[
+  {
+    "fact_id": "c1_f1",
+    "subject": "Balance Sheet of the Reserve Bank",
+    "predicate": "is listed as on",
+    "value": "March 31, 2025",
+    "unit": null,
+    "time_period": "March 31, 2025",
+    "evidence_text": "Balance Sheet as on March 31, 2025............................................................................  226",
+    "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "c1_f2",
+    "subject": "Income Statement of the Reserve Bank",
+    "predicate": "covers the year ended",
+    "value": "March 31, 2025",
+    "unit": null,
+    "time_period": "March 31, 2025",
+    "evidence_text": "Income Statement for the year ended March 31, 2025.................................................  227",
+    "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "c1_f3",
+    "subject": "Chronology of Major Policy Announcements",
+    "predicate": "spans from",
+    "value": "April 2024 to March 2025",
+    "unit": null,
+    "time_period": "April 2024 to March 2025",
+    "evidence_text": "Annex I: Chronology of Major Policy Announcements - April 2024 to March 2025.........  252",
+    "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "c2_f1",
+    "subject": "Historical average global economic growth",
+    "predicate": "stood at",
+    "value": "3.7",
+    "unit": "%",
+    "time_period": "2000-19",
+    "evidence_text": "The global economy in 2025 is likely to grow not only below its historical average (2000-19) of 3.7 per cent, but also below the growth of 3.3 per cent in 2024, on account of heightened global trade protectionism, rising policy uncertainty and ongoing geopolitical tensions.",
+    "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "page_num": 6
+  },
+  {
+    "fact_id": "c2_f2",
+    "subject": "Global economic growth",
+    "predicate": "stood at",
+    "value": "3.3",
+    "unit": "%",
+    "time_period": "2024",
+    "evidence_text": "The global economy in 2025 is likely to grow not only below its historical average (2000-19) of 3.7 per cent, but also below the growth of 3.3 per cent in 2024, on account of heightened global trade protectionism, rising policy uncertainty and ongoing geopolitical tensions.",
+    "source_doc": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "page_num": 6
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "fact_id": "c1_f1",
+    "subject": "Chapter 1: State of the Economy: Getting Back Into the Fast Lane",
+    "predicate": "begins on page",
+    "value": "1",
+    "unit": null,
+    "time_period": null,
+    "evidence_text": "1 STATE OF THE ECONOMY: GETTING BACK INTO THE FAST LANE",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "c1_f2",
+    "subject": "Chapter 2: Monetary and Financial Sector Developments : The Cart and the Horse",
+    "predicate": "begins on page",
+    "value": "36",
+    "unit": null,
+    "time_period": null,
+    "evidence_text": "2 MONETARY AND FINANCIAL SECTOR DEVELOPMENTS : THE CART AND THE HORSE",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "c1_f3",
+    "subject": "Chapter 3: External Sector: Getting FDI Right",
+    "predicate": "begins on page",
+    "value": "80",
+    "unit": null,
+    "time_period": null,
+    "evidence_text": "3 EXTERNAL SECTOR: GETTING FDI RIGHT",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "c1_f4",
+    "subject": "Chapter 4: Prices and Inflation : Understanding the Dynamics",
+    "predicate": "begins on page",
+    "value": "118",
+    "unit": null,
+    "time_period": null,
+    "evidence_text": "4 PRICES AND INFLATION : UNDERSTANDING THE DYNAMICS",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "c1_f5",
+    "subject": "Chapter 13: Labour in the AI Era: Crisis or Catalyst?",
+    "predicate": "begins on page",
+    "value": "411",
+    "unit": null,
+    "time_period": null,
+    "evidence_text": "13 LABOUR IN THE AI ERA: CRISIS OR CATALYST?",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "c2_f1",
+    "subject": "India's real GDP",
+    "predicate": "is estimated to grow by",
+    "value": "6.4",
+    "unit": "per cent",
+    "time_period": "FY25",
+    "evidence_text": "As per the first advance estimates of national accounts, India\u2019s real GDP is estimated to grow by 6.4 per cent in FY25.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 4
+  },
+  {
+    "fact_id": "c2_f2",
+    "subject": "Global economic growth",
+    "predicate": "grew by",
+    "value": "3.3",
+    "unit": "per cent",
+    "time_period": "2023",
+    "evidence_text": "The global economy grew by 3.3 per cent in 2023.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 5
+  },
+  {
+    "fact_id": "c2_f3",
+    "subject": "Global economic growth projected by IMF",
+    "predicate": "is projected to be",
+    "value": "3.2",
+    "unit": "per cent",
+    "time_period": "2024",
+    "evidence_text": "The International Monetary Fund (IMF) has projected growth of 3.2 per cent and 3.3 per cent for 2024 and 2025, respectively.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 5
+  },
+  {
+    "fact_id": "c2_f4",
+    "subject": "Global economic growth projected by IMF",
+    "predicate": "is projected to be",
+    "value": "3.3",
+    "unit": "per cent",
+    "time_period": "2025",
+    "evidence_text": "The International Monetary Fund (IMF) has projected growth of 3.2 per cent and 3.3 per cent for 2024 and 2025, respectively.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 5
+  },
+  {
+    "fact_id": "c2_f5",
+    "subject": "US economic growth",
+    "predicate": "is expected to remain strong at",
+    "value": "2.8",
+    "unit": "per cent",
+    "time_period": "2024",
+    "evidence_text": "Growth in the US is expected to remain strong at 2.8 per cent in 2024 and may decline slightly in 2025, reflecting a moderation in consumption and exports.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 6
+  },
+  {
+    "fact_id": "c2_f6",
+    "subject": "Euro area growth",
+    "predicate": "was",
+    "value": "0.4",
+    "unit": "per cent",
+    "time_period": "2023",
+    "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 6
+  },
+  {
+    "fact_id": "c2_f7",
+    "subject": "Euro area growth",
+    "predicate": "is expected to improve to",
+    "value": "0.8",
+    "unit": "per cent",
+    "time_period": "2024",
+    "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 6
+  },
+  {
+    "fact_id": "c2_f8",
+    "subject": "Euro area growth",
+    "predicate": "is expected to improve to",
+    "value": "1.0",
+    "unit": "per cent",
+    "time_period": "2025",
+    "evidence_text": "In the Euro area, growth is expected to improve from 0.4 per cent in 2023 to 0.8 per cent in 2024 and further to 1.0 per cent in 2025 on the back of improving services activity.",
+    "source_doc": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "page_num": 6
+  }
+]
