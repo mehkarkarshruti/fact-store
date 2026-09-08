@@ -10,6 +10,7 @@ import html
 import json
 import shutil
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -191,13 +192,6 @@ st.markdown(
         }}
         [data-testid="stFileUploaderDropzone"] * {{ color: {COLORS['text']} !important; }}
         [data-testid="stFileUploaderDropzone"] small {{ color: {COLORS['muted']} !important; }}
-        /* FIX (dark-mode glitch, part 2): the "Browse files" button is a native
-           Streamlit button that follows Streamlit's OWN internal theme (often
-           tied to the browser/OS dark-mode preference), independent of our
-           custom is_dark toggle. Our global ".stApp * {{ color }}" rule was
-           forcing dark text onto that button while its background stayed on
-           Streamlit's native (sometimes dark) theme — dark text on a dark
-           background reads as a solid black box. Pin both explicitly here. */
         [data-testid="stFileUploaderDropzone"] button {{
             background-color: {COLORS['surface']} !important;
             background: {COLORS['surface']} !important;
@@ -272,32 +266,21 @@ st.markdown(
             border-radius: 8px !important;
         }}
 
-        /* FIX (Bug 2): style only the OUTER select control. BaseWeb nests several
-           child divs (value container / input wrapper / indicators) inside
-           [data-baseweb="select"] > div — styling every one of those with its own
-           background+border produced stacked/empty-looking "phantom" boxes.
-           Border/background go on the outer element only; inner children are
-           made transparent and borderless so only one box is ever visible. */
         [data-baseweb="select"] {{
-            background:{COLORS['surface']} !important;
-            border: 1px solid {COLORS['border']} !important;
+            background:{COLORS['surface']} !important; 
+            border: 1px solid {COLORS['border']} !important; 
             border-radius: 8px !important;
         }}
         [data-baseweb="select"] > div {{
-            background: transparent !important;
-            border: none !important;
-            color: {COLORS['text']} !important;
+            background: transparent !important; 
+            border: none !important; 
+            color: {COLORS['text']} !important; 
         }}
         [data-baseweb="select"] span, [data-baseweb="select"] input {{ color:{COLORS['text']} !important; }}
         [data-baseweb="popover"] {{ background:{COLORS['surface']} !important; }}
         [role="option"] {{ color:{COLORS['text']} !important; background:{COLORS['surface']} !important; }}
         [role="option"]:hover {{ background:{COLORS['surface_alt']} !important; }}
 
-        /* FIX (dark-mode glitch, part 3): Streamlit gives inline `code` spans
-           (from markdown backticks, e.g. in st.caption) a FIXED dark
-           background + green text by default — independent of our custom
-           is_dark toggle. That's why they showed up as dark/gray pills even
-           on the light theme. Override to follow our own COLORS instead. */
         code {{
             background-color: {COLORS['surface_alt']} !important;
             color: {COLORS['accent']} !important;
@@ -327,10 +310,7 @@ def status_pill(status: str) -> str:
     return f'<span class="status {status_class(status)}">{esc(label)}</span>'
 
 def discover_stores() -> dict[str, Path]:
-    """Only surfaces actual reconciliation output. Raw per-document fact
-    files (in FACTS_DIR) are intermediate data, not findings, and must
-    never show up here — otherwise they render as empty "Untitled metric /
-    Unreconciled" cards with 0 evidence points."""
+    """Surfaces actual cross-document reconciliation outputs."""
     recon_root = DB_DIR / "reconciliations"
     if not recon_root.exists():
         return {}
@@ -356,16 +336,6 @@ def save_uploaded_file(uploaded_file: Any) -> Path:
     return destination
 
 def render_evidence_html(points: list[dict[str, Any]]) -> str:
-    """Builds all evidence blocks as ONE concatenated HTML string.
-
-    FIX (Bug 1): previously each evidence block (and the surrounding
-    detail-card open/close tags) was emitted via a SEPARATE st.markdown()
-    call. Streamlit wraps every markdown() call in its own container, so an
-    opening '<div class="detail-card">' rendered as its own empty styled box
-    (the phantom bar), and content never actually nested inside it. Building
-    the full HTML as one string and calling st.markdown() exactly once fixes
-    this — there is now exactly one real DOM container per card.
-    """
     return "".join(
         f'<div class="evidence">'
         f'<div class="evidence-meta">{esc(point.get("source_doc"))} &nbsp;·&nbsp; '
@@ -378,8 +348,6 @@ def render_evidence_html(points: list[dict[str, Any]]) -> str:
     )
 
 def render_detail_card(item: dict[str, Any]) -> str:
-    """Builds a full detail-card (title + status pill + synthesis + evidence)
-    as a single HTML string so it can be emitted in one st.markdown() call."""
     status = item.get("status", "UNRECONCILED")
     evidence = item.get("data_points", [])
     return (
@@ -481,7 +449,6 @@ if page == "Overview / casebook":
     )
     featured = {"Corroboration": corroborated, "Contradiction": contradiction, "Context resolves": contextual}[featured_name]
     if featured:
-        # FIX (Bug 1): single st.markdown() call for the entire card — see render_detail_card().
         st.markdown(render_detail_card(featured), unsafe_allow_html=True)
     else:
         st.info("This corpus does not contain the selected case.")
@@ -553,7 +520,6 @@ elif page == "Audit findings":
 
     with right:
         active = reconciliations[st.session_state.active_metric_idx]
-        # FIX (Bug 1): single st.markdown() call for the entire card — see render_detail_card().
         st.markdown(render_detail_card(active), unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
@@ -605,7 +571,16 @@ else:
                 if len(extracted_paths) >= 2:
                     print("\n[Synthesizing] Reconciling facts across documents...")
                     results = run_multi_document_reconciliation(extracted_paths)
-                    reconciliation_file = RECON_DIR / "reconciliation_results.json"
+                    
+                    clean_stems = [Path(p).stem.replace("_facts", "") for p in extracted_paths]
+                    summary_tag = "_vs_".join(clean_stems[:2])
+                    if len(clean_stems) > 2:
+                        summary_tag += f"_and_{len(clean_stems)-2}_more"
+                    
+                    timestamp = int(time.time())
+                    reconciliation_filename = f"{summary_tag}_{timestamp}.json"
+                    reconciliation_file = RECON_DIR / reconciliation_filename
+
                     with reconciliation_file.open("w", encoding="utf-8") as file:
                         json.dump([result.model_dump() for result in results], file, indent=2, ensure_ascii=False)
                     print(f"-> Generated {len(results)} reconciled tracks in {reconciliation_file.name}")
@@ -619,7 +594,8 @@ else:
             for error in errors:
                 st.error(error)
         if len(extracted_paths) >= 2:
-            st.session_state.selected_store = f"{RECON_DIR.name}/reconciliation_results.json"
+            # Sync session state key to match the discover_stores() format: uploads/<filename>.json
+            st.session_state.selected_store = f"uploads/{reconciliation_filename}"
             st.success("Documents processed successfully. Switch to Audit findings to inspect.")
             st.rerun()
         elif extracted_paths:
@@ -634,11 +610,6 @@ else:
 
     if stores:
         st.markdown("<div class='section-label'>Existing stores</div>", unsafe_allow_html=True)
-        # FIX (dark-mode glitch): st.dataframe() is a native widget rendered in
-        # its own iframe with an independent theme system — it doesn't read
-        # our injected CSS variables, so it can end up on a different light/dark
-        # theme than the rest of the app. Rendering as plain HTML keeps it in
-        # sync with the app's own theme toggle.
         rows_html = "".join(
             f'<tr>'
             f'<td style="padding:.6rem .9rem; border-bottom:1px solid {COLORS["border"]}; color:{COLORS["text"]};">{esc(name)}</td>'
