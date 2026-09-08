@@ -13,3 +13,11 @@ ENV/
 # System Artifacts
 .DS_Store
 Thumbs.db
+
+# Streamlit local config & state
+.streamlit/
+
+# Temporary user upload scratchpads (optional, if you don't want runtime uploads tracked)
+data/uploads/*
+db/reconciliations/uploads/*
+db/facts/uploads/*
