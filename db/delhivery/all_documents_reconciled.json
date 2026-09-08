@@ -1,0 +1,247 @@
+[
+  {
+    "metric_name": "Revenue from Services / Customers",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery reported revenue from services across both the Annual Report FY24 and Q4 FY24 Earnings Presentation as \u202381,415 million (\u20238,142 Crore). This demonstrates complete alignment between annual summary reporting and quarterly presentation disclosures, while showing substantial growth from the 9-month pre-IPO FY22 baseline of \u202348,105.30 million.",
+    "data_points": [
+      {
+        "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+        "page_num": 17,
+        "value": "48,105.30 \u2010 million",
+        "time_period": "For the nine months period ended December 31, 2021",
+        "evidence_text": "Revenue from contract with customers    48,105.30"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 6,
+        "value": "81,415 INR million",
+        "time_period": "FY24",
+        "evidence_text": "81,415 FY24"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 6,
+        "value": "8,142 \u2010 Cr",
+        "time_period": "FY24",
+        "evidence_text": "\u20108,142 Cr FY24 revenue from services"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 9,
+        "value": "8,142 INR Crore",
+        "time_period": "FY24",
+        "evidence_text": "7,054 7,224 8,142 FY22 FY23 FY24 Revenue from services(1,2) (\u2010 Cr)"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 14,
+        "value": "8,142 \u2010 Cr",
+        "time_period": "FY24",
+        "evidence_text": "Revenue from customers(1) 1,746 1,796 1,824 1,860 1,930 1,942 2,194 2,076 7,225 8,142"
+      }
+    ]
+  },
+  {
+    "metric_name": "Pincode Reach / Coverage",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery's pincode reach for FY24 / Q4 FY24 is consistently cited as 18,793 across multiple pages of the Annual Report and the Q4 FY24 Earnings Presentation. Descriptive text references in the narrative report state coverage as 'more than 18,700', which aligns with the exact operational figure of 18,793 pincodes.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "18,793 pin codes",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": "18,793 (1) Pin codes covered"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 7,
+        "value": "more than 18,700 pin codes",
+        "time_period": null,
+        "evidence_text": "We serve 220+ countries around the globe, reach more than 18,700 out of the 19,300 pin codes in India"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 13,
+        "value": "18793 pin codes",
+        "time_period": "FY24",
+        "evidence_text": "18,793 pin codes"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "18,793 pin codes",
+        "time_period": "Q4 FY24",
+        "evidence_text": "Pin-code reach(1) 18,074 18,540 18,675 18,793"
+      }
+    ]
+  },
+  {
+    "metric_name": "Express Parcel Shipments Delivered Since Inception",
+    "status": "CORROBORATED",
+    "synthesis": "All documents reporting cumulative express parcel delivery volumes confirm that Delhivery has delivered over 2.8 billion shipments since inception up to March 31, 2024.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "2.8 billion shipments",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": ">2.8Bn(1) Express parcel shipments delivered since inception"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 15,
+        "value": "2.8 billion shipments",
+        "time_period": "Since inception",
+        "evidence_text": "Delhivery\u2019s RTO predictor uses machine learning to assess the risk of return and non-acceptance of delivery that sellers face by mining the data already available from 2.8 billion delivered shipments since our inception, our nationwide coverage, and location intelligence solutions."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 6,
+        "value": "2.8 Bn+",
+        "time_period": "Since inception",
+        "evidence_text": "2.8 Bn+ Express parcel shipments since inception"
+      }
+    ]
+  },
+  {
+    "metric_name": "Net Working Capital (NWC) Days",
+    "status": "CORROBORATED",
+    "synthesis": "Across both the Annual Report FY24 and Earnings Presentation Q4 FY24, Delhivery corroborates a reduction in Net Working Capital (NWC) days down to 31 days as of March 2024 / FY24 from 38 days in the prior period.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 4,
+        "value": "31 days",
+        "time_period": "As of March 2024",
+        "evidence_text": "We significantly reduced our net working capital days to 31 days as of March 2024 from 38 days a year ago due to a sharp reduction in our receivable days to 66 as of March 2024 from 77 days a year ago."
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 8,
+        "value": "31 days",
+        "time_period": "FY24",
+        "evidence_text": "In FY24, we shrunk our receivables days by 11 days, reducing our net working capital cycle from 38 to 31 days."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 5,
+        "value": "31 days",
+        "time_period": "FY24",
+        "evidence_text": "Sharp YoY reduction in NWC days from 38 to 31 days"
+      }
+    ]
+  },
+  {
+    "metric_name": "Active Customers",
+    "status": "CORROBORATED",
+    "synthesis": "In Q4 FY24, Delhivery reported having over 33,200 active customers in the Annual Report highlights (>33,200) and precisely 33,278 in the Q4 Earnings Presentation detail table. Narrative text rounded this figure to 'more than 33,000'.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "33,200 active customers",
+        "time_period": "Q4 FY24",
+        "evidence_text": ">33,200 (3,4) Active customers"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 7,
+        "value": "33,000 customers",
+        "time_period": null,
+        "evidence_text": "deliver more than 2 million parcels and 4,000 tonnes of freight per day and serve more than 33,000 customers."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "33,278 active customers",
+        "time_period": "Q4 FY24",
+        "evidence_text": "No. of Active Customers(3) 23,613 27,253 30,598 33,278"
+      }
+    ]
+  },
+  {
+    "metric_name": "Daily Average Fleet Size",
+    "status": "CORROBORATED",
+    "synthesis": "The daily average fleet size in Q4 FY24 was reported as exactly 15,065 in both the FY24 Annual Report and the Q4 FY24 Earnings Presentation.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "15,065 fleet size",
+        "time_period": "Q4 FY24",
+        "evidence_text": "15,065 (3) Daily average fleet size"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "15,065 fleet size",
+        "time_period": "Q4 FY24",
+        "evidence_text": "Fleet size \u2013 daily average 9,120 11,105 13,688 15,065"
+      }
+    ]
+  },
+  {
+    "metric_name": "EBITDA and Profitability Trajectory",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "Delhivery shows a consistent timeline of financial turnaround, progressing from restated net losses in the pre-IPO prospectus period (\u20238,911.39 million loss for 9M FY22) to turning EBITDA positive in FY24 with an EBITDA of \u20231,266 million (\u2023127 Crore) representing a 1.6% EBITDA margin.",
+    "data_points": [
+      {
+        "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+        "page_num": 17,
+        "value": "(8,911.39) \u2010 million",
+        "time_period": "For the nine months period ended December 31, 2021",
+        "evidence_text": "Restated loss for the period /  year (VII= V+VI)    (8,911.39)"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 4,
+        "value": "1.6 % EBITDA margin",
+        "time_period": "FY24",
+        "evidence_text": "Our steady growth across service lines, coupled with inherent operating leverage in our business, led to a 1.6% EBITDA margin in FY24."
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 8,
+        "value": "1,266 INR Million",
+        "time_period": "FY24",
+        "evidence_text": "Our EBITDA improved from a loss of \u20104,516 million in FY23 to a profit of \u20101,266 million in FY24."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 5,
+        "value": "127 Rs. Cr",
+        "time_period": "FY24",
+        "evidence_text": "a FY24 EBITDA increased by Rs. 578 Cr to Rs. 127 Cr from Rs. (452 Cr) in FY23"
+      }
+    ]
+  },
+  {
+    "metric_name": "Indian Logistics Sector Market Size Forecast",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "The prospectus noted the logistics direct spend was US$216 billion in FY20, projected to reach US$365 billion by FY26. The FY24 Annual Report cites a broader Ministry of Commerce estimate predicting the total logistics market size reaching ~$531 billion by 2026, showing evolving macroeconomic assumptions and expanding definition scopes.",
+    "data_points": [
+      {
+        "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+        "page_num": 3,
+        "value": "216 US$ billion",
+        "time_period": "Fiscal 2020",
+        "evidence_text": "The Indian logistics sector had a direct spend of US$216 billion in Fiscal 2020, which is expected to grow to US$365 billion by Fiscal 2026"
+      },
+      {
+        "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+        "page_num": 3,
+        "value": "365 US$ billion",
+        "time_period": "Fiscal 2026",
+        "evidence_text": "The Indian logistics sector had a direct spend of US$216 billion in Fiscal 2020, which is expected to grow to US$365 billion by Fiscal 2026"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 7,
+        "value": "531 billion USD",
+        "time_period": "2026",
+        "evidence_text": "According to the Ministry of Commerce and Industry, Logistics will likely become a ~$531 billion by 2026."
+      }
+    ]
+  }
+]

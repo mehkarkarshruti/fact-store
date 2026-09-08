@@ -1,0 +1,68 @@
+[
+  {
+    "fact_id": "fact_1",
+    "subject": "Delhivery Limited Fresh Issue",
+    "predicate": "aggregated to",
+    "value": "40,000.00",
+    "unit": "INR million",
+    "time_period": null,
+    "evidence_text": "Fresh issue of 82,152,503* Equity Shares aggregating to \u20b940,000.00 million",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "fact_2",
+    "subject": "Delhivery Limited Offer for Sale",
+    "predicate": "aggregated to",
+    "value": "12,350.00",
+    "unit": "INR million",
+    "time_period": null,
+    "evidence_text": "Offer for sale of 25,364,585* Equity Shares aggregating to \u20b912,350.00 million",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "fact_3",
+    "subject": "Delhivery Equity Shares face value",
+    "predicate": "is",
+    "value": "1",
+    "unit": "INR",
+    "time_period": null,
+    "evidence_text": "The face value of the Equity Shares is \u20b91 each.",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 1
+  },
+  {
+    "fact_id": "fact_4",
+    "subject": "Indian logistics sector direct spend",
+    "predicate": "was",
+    "value": "216",
+    "unit": "USD billion",
+    "time_period": "Fiscal 2020",
+    "evidence_text": "The Indian logistics sector had a direct spend of US$216 billion in Fiscal 2020, which is expected to grow to US$365 billion by Fiscal 2026, driven by strong underlying economic growth, favourable regulatory environment, improvements in India\u2019s transportation infrastructure, growth of domestic manufacturing, the digital economy and offline commerce.",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "fact_5",
+    "subject": "Organized players market share in road transportation, warehousing and supply chain services",
+    "predicate": "accounted for approximately",
+    "value": "3.5",
+    "unit": "%",
+    "time_period": "Fiscal 2020",
+    "evidence_text": "The industry is fragmented with organized players accounting for approximately 3.5% of the market for road transportation, warehousing and supply chain services in Fiscal 2020.",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 3
+  },
+  {
+    "fact_id": "fact_6",
+    "subject": "Employee Reservation Portion",
+    "predicate": "aggregated to",
+    "value": "200",
+    "unit": "INR million",
+    "time_period": null,
+    "evidence_text": "Employee Reservation Portion(3) 432,900* Equity Shares aggregating to \u20b9200 million",
+    "source_doc": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "page_num": 3
+  }
+]

@@ -1,0 +1,268 @@
+[
+  {
+    "metric_name": "Pincode Reach",
+    "status": "CORROBORATED",
+    "synthesis": "The total pincodes covered by Delhivery reached 18,793 as of Q4 FY24 / end of FY24, as consistently reported across both the annual report and the earnings presentation.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "18,793 pin codes",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": "18,793 (1) Pin codes covered"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 13,
+        "value": "18793 pin codes",
+        "time_period": "FY24",
+        "evidence_text": "18,793 pin codes"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "18,793",
+        "time_period": "Q4 FY24",
+        "evidence_text": "Pin-code reach(1) 18,074 18,540 18,675 18,793"
+      }
+    ]
+  },
+  {
+    "metric_name": "Revenue from Services",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery reported revenue from services of \u20b98,142 Crore (or INR 81,415 million) for FY24 across both filings, demonstrating exact numerical corroboration between different unit expressions.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 6,
+        "value": "81,415 INR million",
+        "time_period": "FY24",
+        "evidence_text": "81,415 FY24"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 5,
+        "value": "8,142 \u20b9 Cr",
+        "time_period": "FY24",
+        "evidence_text": "\u20b98,142 Cr FY24 revenue from services"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 9,
+        "value": "8,142 INR Crore",
+        "time_period": "FY24",
+        "evidence_text": "7,054 7,224 8,142 FY22 FY23 FY24 Revenue from services(1,2) (\u20b9 Cr)"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 7,
+        "value": "2,076 INR Crore",
+        "time_period": "Q4 FY24",
+        "evidence_text": "\u20b92,076 Cr Q4 FY24 revenue from services"
+      }
+    ]
+  },
+  {
+    "metric_name": "Express Parcel Shipments Delivered Since Inception",
+    "status": "CORROBORATED",
+    "synthesis": "Both filings confirm that Delhivery has delivered over 2.8 billion express parcel shipments since inception as of the end of FY24.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "2.8 billion",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": ">2.8Bn(1) Express parcel shipments delivered since inception"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 15,
+        "value": "2.8 billion",
+        "time_period": "Since inception",
+        "evidence_text": "Delhivery\u2019s RTO predictor uses machine learning to assess the risk of return and non-acceptance of delivery that sellers face by mining the data already available from 2.8 billion delivered shipments since our inception, our nationwide coverage, and location intelligence solutions."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 6,
+        "value": "2.8 Bn Section Total Mn",
+        "time_period": "Since inception",
+        "evidence_text": "2.8 Bn+ Express parcel shipments since inception"
+      }
+    ]
+  },
+  {
+    "metric_name": "Net Working Capital Days",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery successfully reduced its Net Working Capital (NWC) cycle from 38 days to 31 days in FY24, supported by a reduction in receivable days to 66 days.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 4,
+        "value": "31 days",
+        "time_period": "As of March 2024",
+        "evidence_text": "We significantly reduced our net working capital days to 31 days as of March 2024 from 38 days a year ago due to a sharp reduction in our receivable days to 66 as of March 2024 from 77 days a year ago."
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 8,
+        "value": "31 days",
+        "time_period": "FY24",
+        "evidence_text": "In FY24, we shrunk our receivables days by 11 days, reducing our net working capital cycle from 38 to 31 days."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 5,
+        "value": "31 days",
+        "time_period": "FY24",
+        "evidence_text": "Sharp YoY reduction in NWC days from 38 to 31 days"
+      }
+    ]
+  },
+  {
+    "metric_name": "Count of 46-ft Tractors",
+    "status": "CORROBORATED",
+    "synthesis": "The fleet size of fuel-efficient 46-ft tractor trailers reached 753 units by the end of FY24, carrying over 70% of the load.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "753",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": "753 (1) Count of 46-ft tractors"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 8,
+        "value": "753 tractors",
+        "time_period": "FY24",
+        "evidence_text": "Total count increased to 753 46-ft tractors by end of FY24"
+      }
+    ]
+  },
+  {
+    "metric_name": "Daily Average Fleet Size",
+    "status": "CORROBORATED",
+    "synthesis": "The daily average fleet size for Q4 FY24 reached 15,065 vehicles, aligned across both the annual report highlights and the earnings presentation breakdown.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "15,065",
+        "time_period": "Q4 FY24",
+        "evidence_text": "15,065 (3) Daily average fleet size"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "15,065",
+        "time_period": "Q4 FY24",
+        "evidence_text": "Fleet size \u2013 daily average 9,120 11,105 13,688 15,065"
+      }
+    ]
+  },
+  {
+    "metric_name": "Active Customers",
+    "status": "CORROBORATED",
+    "synthesis": "Active customer count exceeded 33,200 in Q4 FY24, with the exact figure stated as 33,278 in the earnings presentation.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "33,200",
+        "time_period": "Q4 FY24",
+        "evidence_text": ">33,200 (3,4) Active customers"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 7,
+        "value": "33,000",
+        "time_period": null,
+        "evidence_text": "We serve 220+ countries around the globe, reach more than 18,700 out of the 19,300 pin codes in India, operate about 19 million square feet of logistics infrastructure, drive more than 5 lakh kilometres every day connecting close to 5,000 facilities within our network, deliver more than 2 million parcels and 4,000 tonnes of freight per day and serve more than 33,000 customers."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 8,
+        "value": "33,278",
+        "time_period": "Q4 FY24",
+        "evidence_text": "No. of Active Customers(3) 23,613 27,253 30,598 33,278"
+      }
+    ]
+  },
+  {
+    "metric_name": "Express Parcel Annual Shipment Volume",
+    "status": "CONSISTENT_TIMELINE",
+    "synthesis": "Express Parcel volume expanded consistently from 582 million in FY22 to 663 million in FY23, reaching 740 million in FY24.",
+    "data_points": [
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 6,
+        "value": "740 Mn",
+        "time_period": "FY24",
+        "evidence_text": "740 Mn Express parcel shipments in FY24"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 9,
+        "value": "740 million",
+        "time_period": "FY24",
+        "evidence_text": "582 663 740 FY22 FY23 FY24 Express Parcel shipments (Mn)"
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 7,
+        "value": "176 million",
+        "time_period": "Q4 FY24",
+        "evidence_text": "176 Mn Express parcel shipments in Q4 FY24"
+      }
+    ]
+  },
+  {
+    "metric_name": "EBITDA Performance",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery turned EBITDA profitable in FY24, generating \u20b91,266 million (\u20b9127 Cr), representing a 1.6% EBITDA margin and a \u20b9578 Cr YoY improvement over FY23.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 4,
+        "value": "1.6 %",
+        "time_period": "FY24",
+        "evidence_text": "Our steady growth across service lines, coupled with inherent operating leverage in our business, led to a 1.6% EBITDA margin in FY24."
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 8,
+        "value": "1,266 INR Million",
+        "time_period": "FY24",
+        "evidence_text": "Our EBITDA improved from a loss of \u20b94,516 million in FY23 to a profit of \u20b91,266 million in FY24."
+      },
+      {
+        "source_doc": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+        "page_num": 5,
+        "value": "127 Rs. Cr",
+        "time_period": "FY24",
+        "evidence_text": "a FY24 EBITDA increased by Rs. 578 Cr to Rs. 127 Cr from Rs. (452 Cr) in FY23"
+      }
+    ]
+  },
+  {
+    "metric_name": "Last-Mile Delivery Centres",
+    "status": "CORROBORATED",
+    "synthesis": "Delhivery operates 4,445 last-mile delivery/distribution centres across India as of the end of FY24.",
+    "data_points": [
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 2,
+        "value": "4,445",
+        "time_period": "As of March 31, 2024",
+        "evidence_text": "4,445 (1) Last-mile delivery centres"
+      },
+      {
+        "source_doc": "02-delhivery-annual-report-fy24-excerpt.pdf",
+        "page_num": 13,
+        "value": "4445 centres",
+        "time_period": "FY24",
+        "evidence_text": "4,445 last mile distribution centres"
+      }
+    ]
+  }
+]
