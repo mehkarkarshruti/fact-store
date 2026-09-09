@@ -69,58 +69,39 @@ The video walks through:
 
 ### Pipeline
 
-1. **Extraction** (`extract.py`) — Each PDF is read with PyMuPDF, chunked by page
-   ranges (default: 3 pages per chunk) so extraction stays within LLM output-token
-   limits on long documents. Each chunk is tagged with `[PAGE N]` markers and sent
-   to **Gemini** with a strict JSON schema (via Pydantic `response_schema`), so the
-   model can only return valid, structured `Fact` objects — never freeform prose.
-   Facts include `subject`, `predicate`, `value`, `unit`, `time_period`, and a
-   mandatory `evidence_text`: an exact verbatim quote from the source, which is the
-   main defense against hallucination — a fact without a real supporting quote is
-   never trusted as fully grounded.
-
-2. **Grounding** — Every fact carries its source filename and page number,
-   assigned deterministically by our own code after parsing (not by the LLM), so
-   fact IDs and page attributions stay consistent and collision-free across chunks
-   and documents.
-
-3. **Reconciliation** (`compare.py`) — Facts from multiple documents are pooled and
-   sent to Gemini, which groups them into unified metric tracks and classifies each
-   as `CORROBORATED`, `CONTRADICTION`, `CONSISTENT_TIMELINE` (context resolves an
-   apparent mismatch), or `UNRECONCILED`. Each verdict includes a synthesis
-   explaining the reasoning and links back to every supporting evidence point.
-
-4. **Interface** (`ui.py`) — A Streamlit app with three views: a guided casebook
-   showing one example of each required case, a searchable/filterable findings
-   explorer, and a live ingestion tab that runs the full pipeline on newly
-   uploaded PDFs and writes results into their own store, separate from the
-   curated sample data.
-
+**1. Extraction (`extract.py`)**
+ 
+Each PDF is read with PyMuPDF and chunked by page range (3 pages per chunk by default). Every chunk gets `[PAGE N]` markers before being sent to Gemini with a strict Pydantic JSON schema, so the model only ever returns structured `Fact` objects — never free-form prose. Each fact carries `subject`, `predicate`, `value`, `unit`, `time_period`, and critically, `evidence_text`: a verbatim quote from the source backing the claim.
+ 
+**2. Grounding**
+ 
+Every fact carries its source filename and page number, plus a `fact_id` assigned deterministically in code like- document name + chunk index + position all after parsing, not by the LLM.
+ 
+**3. Reconciliation (`compare.py`)**
+ 
+Facts from multiple documents are pooled and sent to Gemini, which groups them into unified metric tracks and classifies each as `CORROBORATED`, `CONTRADICTION`, `CONSISTENT_TIMELINE`, or `UNRECONCILED`. Each verdict includes a synthesis explaining the reasoning, with links back to every supporting quote.
+ 
+**4. Interface (`ui.py`)**
+ 
+A Streamlit app with three tabs: a guided casebook walking through one example per required case, a searchable/filterable findings explorer, and a live ingestion tab where new PDFs get processed end to end extraction, then reconciliation.
+ 
 ### Key design decisions
-
-- **No hard-coded facts, filenames, or schemas.** The extraction prompt asks the
-  LLM to find whatever factual claims exist in the text — it isn't told to look
-  for specific fields like "revenue" or "GDP." This is what lets the same pipeline
-  run unmodified on documents it has never seen.
-- **Structured output over regex parsing.** Forcing the LLM into a JSON schema
-  instead of parsing free text avoids a large, fragile class of parsing bugs.
-- **Chunking by page range, not whole-document.** 90–100 page source PDFs exceed
-  what a single LLM call can reliably extract facts from without truncation, so
-  documents are processed in page-range chunks with page markers preserved for
-  grounding.
-- **Raw facts and reconciliation output are stored separately** (`db/facts/` vs
-  `db/reconciliations/`), so the UI can never accidentally treat an unprocessed
-  fact file as a finished "finding."
-- **Comparison is done in a single pooled LLM call per document set** rather than
-  a pairwise embedding-similarity search. This is a deliberate simplification
-  given the scale of three sample documents; see Limitations for how this would
-  need to change at larger scale.
+ 
+- **Chunking by page range, not whole-document.** My first instinct was to just throw the whole PDF at Gemini in one go, it didn't survive contact with reality. Free-tier token/request limits hit fast, and long documents (some PDFs here run 90-100 pages) don't fit cleanly in one response before the model starts truncating. Fixed-size chunks were the safe, predictable choice under a hard rate limit. With more API headroom I'd make this dynamic foe example bigger chunks for sparse pages and smaller for dense tables.
+- **Rate-limit survival tactics.** To actually get through the free tier without dying mid-run: a 6-second sleep between chunk calls, retry-with-backoff for 429s/503s, and a fallback that switches Flash model variants during capacity spikes. Not elegant, but it meant I could run full documents overnight without the pipeline just stopping.
+- **Deterministic fact IDs, not LLM-generated.** Didn't think hard about this at first I just let the LLM generate IDs as part of its output. At comparison time I noticed IDs resetting per chunk (`fact_1`, `fact_2`...), causing silent collisions once facts from different chunks got pooled. Fix: took ID generation away from the LLM entirely and assign it deterministically in code instead.
+- **Unit normalization before comparison.** Early on I hit representational variance — the same rupee amount showing up as `₹`, `INR`, `Rs.`, or a bare number tagged "crore"/"million" depending on the document. Fed in raw, the model could treat identical values as different just from formatting, or misread magnitude entirely. So I wrote a `normalize_unit` function to standardize values before comparison — made reconciliation noticeably more reliable, especially for corroboration cases.
+- **Raw facts and reconciliation output stored separately** (`db/facts/` vs `db/reconciliations/`). This came from a real bug — raw fact files were showing up in the UI as if they were finished "findings" (empty metric name, zero evidence points). Splitting the storage fixed it at the source instead of patching around it in the UI.
+- **One pooled LLM call per document set for comparison, not pairwise embedding search.** With only three documents per dataset, one pooled call was simpler and cheaper than building an embedding-similarity filter first. Won't scale past a handful of documents like flagged that directly in Limitations rather than pretending it's production-ready.
+- **No hard-coded facts, filenames, or schemas.** The extraction prompt stays open-ended on purpose and it asks for whatever factual claims exist, never told to look for specific fields like "revenue" or "GDP." That's what lets the same pipeline run unmodified on a PDF it's never seen.
+- **Structured output over regex parsing.** Could've asked the LLM to describe facts in prose and regex them apart but that feels fragile, it may break the moment phrasing shifts. A JSON schema through Pydantic meant never fighting my own parsing logic.
 
 ### AI tools used
 
 - **Google Gemini** (free tier) for both fact extraction and cross-document
   reconciliation, via structured JSON output.
 - **Manus AI** for ui fixes and refactoring.
+- **This project was build with the help of AI with a touch of my own knowledge and gist.** 
 
 ---
 
