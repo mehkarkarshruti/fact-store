@@ -13,11 +13,14 @@ they corroborate, contradict, or are reconciled by context (time, scope, or unit
 
 ```bash
 git clone https://github.com/mehkarkarshruti/fact-store.git
+cd fact-store
+
 pip install -r requirements.txt
 
-cp .env.example .env
-# open .env and paste your GEMINI_API_KEY
+# Copy example environment configuration
+cp .env.example .env    # On Windows PowerShell use: Copy-Item .env.example .env
 
+# Open .env and insert your GEMINI_API_KEY
 streamlit run app/ui.py
 ```
 
@@ -31,30 +34,37 @@ An API key is only needed if you want to process a **new** PDF yourself via the
 ### Project structure
 
 ```
-app/
-├── ui.py          # Streamlit UI (three tabs: casebook, findings, ingest)
-├── extract.py     # PDF → chunked text → LLM → structured Fact objects
-├── compare.py     # Cross-document reconciliation (corroborate/contradict/context)
-├── pdf_reader.py  # PyMuPDF text extraction + chunking with page tags
-├── schema.py      # Pydantic schema for Fact / FactList
-└── prompts.py     # Extraction prompt template
-
-db/
-├── facts/              # Raw per-document extracted facts (pre-comparison)
-│   ├── delhivery/       # sample: Delhivery prospectus, annual report, earnings deck
-│   ├── macro/            # sample: Economic Survey, RBI Annual Report, IMF report
-│   └── uploads/            # auto-populated when a PDF is uploaded via the UI
-└── reconciliations/     # Cross-document comparison output
-    ├── delhivery/
-    ├── macro/
-    └── uploads/            # auto-populated after live ingestion
+fact-store/
+├── app/
+│   ├── compare.py        # Cross-document reconciliation engine (Corroborate, Contradict, Timeline)
+│   ├── extract.py        # PDF text chunking → Gemini LLM extraction → Structured Fact objects
+│   ├── pdf_reader.py     # PyMuPDF ingestion pipeline with page-number boundary tagging
+│   ├── prompts.py        # System instructions and few-shot templates for structured extraction
+│   ├── query.py          # Query interface for semantic lookup across indexed facts
+│   ├── schema.py         # Pydantic schemas validating strict Fact and ReconciledTrack models
+│   └── ui.py             # Streamlit workspace (Casebook, Findings Explorer, Live Terminal Ingest)
+├── data/
+│   ├── delhivery/        # Baseline corporate financial filings (Prospectus, Annual Report, Earnings)
+│   ├── india-macroeconomy/ # Macroeconomic reports (Economic Survey, RBI Report, IMF Article IV)
+│   └── uploads/          # Staging directory for newly uploaded PDF excerpts via the UI
+├── db/
+│   ├── facts/            # Intermediate raw per-document extracted facts (JSON)
+│   │   ├── delhivery/    # Pre-indexed facts for Delhivery filings
+│   │   ├── macro/        # Pre-indexed facts for Macroeconomic benchmarks
+│   │   └── uploads/      # Generated during pipeline stage 1; isolated to prevent UI pollution
+│   └── reconciliations/  # Reconciled multi-document outputs with ground-truth citations
+│       ├── delhivery/    # Multi-document reconciled stores (e.g., Annual Report vs Presentation)
+│       ├── macro/        # Multi-document macroeconomic comparison stores
+│       └── uploads/      # Dynamically generated reconciliation stores from live UI runs
+├── requirements.txt      # Pinned project dependencies
+└── README.md             # System documentation, quickstart guide, and audit methodology
 ```
 
 ---
 
 ## Video Demo
 
-[**Watch the demo**](<https://drive.google.com/file/d/1aRPJVZ_BoJvI8InS9PBBWgWLfM07M-KXn/view?usp=sharing>)
+[**Watch the demo**](https://drive.google.com/file/d/1RPJVZ_BoJvI8InS9PBBWgWLfM07M-KXn/view?usp=sharing)
 
 The video walks through:
 1. A fact corroborated across two Delhivery documents (revenue, stated differently)
@@ -71,7 +81,7 @@ The video walks through:
 
 **1. Extraction (`extract.py`)**
  
-Each PDF is read with PyMuPDF and chunked by page range (3 pages per chunk by default). Every chunk gets `[PAGE N]` markers before being sent to Gemini with a strict Pydantic JSON schema, so the model only ever returns structured `Fact` objects — never free-form prose. Each fact carries `subject`, `predicate`, `value`, `unit`, `time_period`, and critically, `evidence_text`: a verbatim quote from the source backing the claim.
+Each PDF is read with PyMuPDF and chunked by page range (3 pages per chunk by default). Every chunk gets `[PAGE N]` markers before being sent to Gemini with a strict Pydantic JSON schema, so the model only ever returns structured `Fact` objects and never free-form prose. Each fact carries `subject`, `predicate`, `value`, `unit`, `time_period`, and critically, `evidence_text`: a verbatim quote from the source backing the claim.
  
 **2. Grounding**
  
@@ -92,7 +102,7 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
 - **Deterministic fact IDs, not LLM-generated.** Didn't think hard about this at first I just let the LLM generate IDs as part of its output. At comparison time I noticed IDs resetting per chunk (`fact_1`, `fact_2`...), causing silent collisions once facts from different chunks got pooled. Fix: took ID generation away from the LLM entirely and assign it deterministically in code instead.
 - **Unit normalization before comparison.** Early on I hit representational variance like
  the same rupee amount showing up as `₹`, `INR`, `Rs.`, or a bare number tagged "crore"/"million" depending on the document. Fed in raw, the model could treat identical values as different just from formatting, or misread magnitude entirely. So I wrote a `normalize_unit` function to standardize values before comparison made reconciliation noticeably more reliable, especially for corroboration cases.
-- **Raw facts and reconciliation output stored separately** (`db/facts/` vs `db/reconciliations/`). This came from a real bug — raw fact files were showing up in the UI as if they were finished "findings" (empty metric name, zero evidence points). Splitting the storage fixed it at the source instead of patching around it in the UI.
+- **Raw facts and reconciliation output stored separately** (`db/facts/` vs `db/reconciliations/`). This came from a big bug, my raw fact files were showing up in the UI as if they were finished "findings" (empty metric name, zero evidence points), which is so wrong! So i did splitting the storage, fixed it at the source instead of patching around it in the UI.
 - **One pooled LLM call per document set for comparison, not pairwise embedding search.** With only three documents per dataset, one pooled call was simpler and cheaper than building an embedding-similarity filter first. Won't scale past a handful of documents like flagged that directly in Limitations rather than pretending it's production-ready.
 - **No hard-coded facts, filenames, or schemas.** The extraction prompt stays open-ended on purpose and it asks for whatever factual claims exist, never told to look for specific fields like "revenue" or "GDP." That's what lets the same pipeline run unmodified on a PDF it's never seen.
 - **Structured output over regex parsing.** Could've asked the LLM to describe facts in prose and regex them apart but that feels fragile, it may break the moment phrasing shifts. A JSON schema through Pydantic meant never fighting my own parsing logic.
@@ -132,8 +142,8 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
   overlap window or cross-chunk stitching is currently implemented.
 - **Facts inside charts, graphs, and images are not extracted.** Extraction relies
   on `PyMuPDF`'s text layer only, so any fact that exists purely as a visual
-  element — a bar chart value, a trend line, an infographic number rendered as an
-  image rather than text — is invisible to the pipeline. Several of the source
+  element like a bar chart value, a trend line, an infographic number rendered as an
+  image rather than text, these are yet invisible to the pipeline. Several of the source
   PDFs (especially the earnings presentation) contain exactly this kind of visual
   data, some of which is likely missed as a result.
 - **Comparison does not scale past a handful of documents.** `compare.py`
@@ -153,7 +163,7 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
 
 1. Add an embedding-based candidate filter (sentence-transformers + cosine
    similarity) before the LLM comparison step, so only likely-related fact pairs
-   are sent for expensive reasoning — this both reduces token usage and would let
+   are sent for expensive reasoning. This both reduces token usage and would let
    reconciliation scale to many more documents.
 2. Surface failed-chunk warnings directly in the UI, with a visible retry queue,
    instead of silently returning zero facts.
@@ -183,3 +193,4 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
 - The demo video shows a live extraction + reconciliation run on camera using the
   starter dataset PDFs uploaded through the app itself, to demonstrate the full
   pipeline working end-to-end.
+- This was genuinely fun to build, the topic was new to me going in, and I tried to actually apply what I'd studied rather than wing it: chunking, structured output, evidence-grounded extraction. It's not a perfect system, but it's my honest, working attempt, and I can see clearly where more time and API headroom would make it meaningfully stronger.
