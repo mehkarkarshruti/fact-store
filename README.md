@@ -1,7 +1,7 @@
 # FactStore — A Fact Knowledge Layer for PDFs
 
 FactStore reads PDFs, extracts grounded factual claims, links each fact to the exact
-page and quote it came from, and reconciles facts across documents — flagging when
+page and quote it came from, and reconciles facts across documents, flagging when
 they corroborate, contradict, or are reconciled by context (time, scope, or units).
 
 
@@ -21,7 +21,7 @@ cp .env.example .env
 streamlit run app/ui.py
 ```
 
-The app opens with **pre-computed sample results already loaded and browsable** —
+The app opens with **pre-computed sample results already loaded and browsable** where
 no API key is required just to explore the Delhivery and India-macroeconomy
 datasets under "Overview / casebook" and "Audit findings."
 
@@ -90,7 +90,8 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
 - **Chunking by page range, not whole-document.** My first instinct was to just throw the whole PDF at Gemini in one go, it didn't survive contact with reality. Free-tier token/request limits hit fast, and long documents (some PDFs here run 90-100 pages) don't fit cleanly in one response before the model starts truncating. Fixed-size chunks were the safe, predictable choice under a hard rate limit. With more API headroom I'd make this dynamic foe example bigger chunks for sparse pages and smaller for dense tables.
 - **Rate-limit survival tactics.** To actually get through the free tier without dying mid-run: a 6-second sleep between chunk calls, retry-with-backoff for 429s/503s, and a fallback that switches Flash model variants during capacity spikes. Not elegant, but it meant I could run full documents overnight without the pipeline just stopping.
 - **Deterministic fact IDs, not LLM-generated.** Didn't think hard about this at first I just let the LLM generate IDs as part of its output. At comparison time I noticed IDs resetting per chunk (`fact_1`, `fact_2`...), causing silent collisions once facts from different chunks got pooled. Fix: took ID generation away from the LLM entirely and assign it deterministically in code instead.
-- **Unit normalization before comparison.** Early on I hit representational variance — the same rupee amount showing up as `₹`, `INR`, `Rs.`, or a bare number tagged "crore"/"million" depending on the document. Fed in raw, the model could treat identical values as different just from formatting, or misread magnitude entirely. So I wrote a `normalize_unit` function to standardize values before comparison — made reconciliation noticeably more reliable, especially for corroboration cases.
+- **Unit normalization before comparison.** Early on I hit representational variance like
+ the same rupee amount showing up as `₹`, `INR`, `Rs.`, or a bare number tagged "crore"/"million" depending on the document. Fed in raw, the model could treat identical values as different just from formatting, or misread magnitude entirely. So I wrote a `normalize_unit` function to standardize values before comparison made reconciliation noticeably more reliable, especially for corroboration cases.
 - **Raw facts and reconciliation output stored separately** (`db/facts/` vs `db/reconciliations/`). This came from a real bug — raw fact files were showing up in the UI as if they were finished "findings" (empty metric name, zero evidence points). Splitting the storage fixed it at the source instead of patching around it in the UI.
 - **One pooled LLM call per document set for comparison, not pairwise embedding search.** With only three documents per dataset, one pooled call was simpler and cheaper than building an embedding-similarity filter first. Won't scale past a handful of documents like flagged that directly in Limitations rather than pretending it's production-ready.
 - **No hard-coded facts, filenames, or schemas.** The extraction prompt stays open-ended on purpose and it asks for whatever factual claims exist, never told to look for specific fields like "revenue" or "GDP." That's what lets the same pipeline run unmodified on a PDF it's never seen.
