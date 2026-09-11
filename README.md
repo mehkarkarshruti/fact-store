@@ -112,7 +112,6 @@ A Streamlit app with three tabs: a guided casebook walking through one example p
 - **Google Gemini** (free tier) for both fact extraction and cross-document
   reconciliation, via structured JSON output.
 - **Manus AI** for ui fixes and refactoring.
-- **This project was build with the help of AI with a touch of my own knowledge and gist.** 
 
 ---
 
